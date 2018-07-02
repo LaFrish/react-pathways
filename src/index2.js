@@ -2,89 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
-
-
-class ContentInfo extends React.Component{
-  render(){
-    const content = this.props.content;
-    const title = content.title;
-
-    return(
-<div>
-        <div className="title">{title}</div>
-        <div className="description">{content.description}</div>
+function Timeline(props){
+  const item = props.contents.map((content) =>
+  <div key={content.id}>
+  <h3>{content.title}</h3>
+  <p>{content.description}</p>
   </div>
-    );
-  }
+);
+return(
+  <div>
+  {item}
+  </div>
+);
 }
 
-// function ContentInfo(props){
-//     const contents = props.contents;
-//     const contentInfo = contents.map((content) =>
-//   <ContentInfo key={content.toString()}
-//   value={content} />
-//   )
-//   return(
-//     <div className ="contentContainer">
-//     <Content item={props.item} />
-//     <div className="title">{props.item.title}</div>
-//     </div>
-//   )
-//
-//
-// }
-
-
-
-class Timeline extends React.Component {
-  render() {
-    const items=[];
-    this.props.contents.forEach((content) => {
-
-  items.push(
-    <ContentInfo
-      content={content}
-      key={content.title} />
-  );
-
-});
-
-
-
-
-    return (
-      <div>
-
-          <ul>
-            <li><div className='contentContainer'>{items}</div></li>
-
-          </ul>
-        </div>
-      );
-    }
-  }
-
-class Pathway extends React.Component {
-  render() {
-    return (
-      <div>
-      <div className="intro">
-        <div className="container">
-          <h1 className="status">AG EMENA Manager Pathways</h1>
-        </div>
-      </div>
-        <div className="timeline">
-          <Timeline contents={this.props.contents} />
-
-        </div>
-      </div>
-    );
-  }
-}
-
-
-const CONTENTS = [
+const contents =  [
   { id: 0,
     title: 'Hiring & Onboarding the Right People',
     description: 'A session covering how to make sure your interviews are effective, and giving an overview of the areas you’ll need to cover in the first few weeks to bring a recruiter on board and begin to develop their skills.'
@@ -151,7 +83,7 @@ const CONTENTS = [
 // ========================================
 
 ReactDOM.render(
-  <Pathway contents={CONTENTS}/>,
+  <Timeline contents={contents}/>,
 
   document.getElementById('root')
 );
