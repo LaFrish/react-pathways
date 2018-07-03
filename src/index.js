@@ -3,15 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class ContentInfo extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      isToggleOn: true
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+  
   render(){
     const content = this.props.content;
     const title = content.title;
 
+
     return(
-      <li>
+      <li
+      onClick={this.handleClick}
+      >
+
         <div className="contentContainer">
           <div className="title">{title}</div>
-          <div className="description">{content.description}</div>
+          <div className="description">{this.state.isToggleOn ? '' : content.description}</div>
         </div>
       </li>
     );

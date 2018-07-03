@@ -111,25 +111,35 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #021A32;
+  color: #0195d3;
 }
 
-.description{
+/* .description{
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+
+} */
+.description::before{
   font-family: 'Roboto Condensed';
   padding-left: 10px;
   padding-right: 10px;
 
 }
+/* .description::after{
+  visibility: visible;
+  opacity: 1;
 
+} */
 
 /* EFFECTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*
+
 .timeline ul li::after {
   transition: background .5s ease-in-out;
 }
 
-.timeline ul li.in-view::after {
+/* .timeline ul li.in-view::after {
   background: #f8971d;
 }
 
