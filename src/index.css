@@ -66,7 +66,7 @@ body {
 }
 
 
-.timeline ul li .content {
+.timeline ul li .contentContainer {
   position: relative;
   bottom: 0;
   width: 400px;
@@ -76,7 +76,7 @@ body {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-.timeline ul li .content::before {
+.timeline ul li .contentContainer::before {
   content: '';
   position: absolute;
   bottom: 7px;
@@ -85,21 +85,21 @@ body {
   border-style: solid;
 }
 
-.timeline ul li:nth-child(odd) .content {
+.timeline ul li:nth-child(odd) .contentContainer {
   left: 45px;
 }
 
-.timeline ul li:nth-child(odd) .content::before {
+.timeline ul li:nth-child(odd) .contentContainer::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent #fff transparent transparent;
 }
 
-.timeline ul li:nth-child(even) .content {
+.timeline ul li:nth-child(even) .contentContainer {
   left: -439px;
 }
 
-.timeline ul li:nth-child(even) .content::before {
+.timeline ul li:nth-child(even) .contentContainer::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent #fff;
@@ -111,6 +111,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
+  color: #021A32;
 }
 
 .description{
@@ -132,21 +133,21 @@ body {
   background: #f8971d;
 }
 
-.timeline ul li .content {
+.timeline ul li .contentContainer {
   visibility: hidden;
   opacity: 0;
   transition: all .5s ease-in-out;
 }
 
-.timeline ul li:nth-child(odd) .content {
+.timeline ul li:nth-child(odd) .contentContainer {
   transform: translate3d(200px, 0, 0);
 }
 
-.timeline ul li:nth-child(even) .content {
+.timeline ul li:nth-child(even) .contentContainer {
   transform: translate3d(-200px, 0, 0);
 }
 
-.timeline ul li.in-view .content {
+.timeline ul li.in-view .contentContainer {
   transform: none;
   visibility: visible;
   opacity: 1;
@@ -157,10 +158,10 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 @media screen and (max-width: 900px) {
-  .timeline ul li .content {
+  .timeline ul li .contentContainer {
     width: 250px;
   }
-  .timeline ul li:nth-child(even) .content {
+  .timeline ul li:nth-child(even) .contentContainer {
     left: -289px;
     /*250+45-6*/
   }
@@ -170,13 +171,13 @@ body {
   .timeline ul li {
     margin-left: 20px;
   }
-  .timeline ul li .content {
+  .timeline ul li .contentContainer {
     width: calc(100vw - 91px);
   }
-  .timeline ul li:nth-child(even) .content {
+  .timeline ul li:nth-child(even) .contentContainer {
     left: 45px;
   }
-  .timeline ul li:nth-child(even) .content::before {
+  .timeline ul li:nth-child(even) .contentContainer::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
     border-color: transparent #fff transparent transparent;

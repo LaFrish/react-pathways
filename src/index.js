@@ -2,68 +2,40 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
-
-
 class ContentInfo extends React.Component{
   render(){
     const content = this.props.content;
     const title = content.title;
 
     return(
-<div>
-        <div className="title">{title}</div>
-        <div className="description">{content.description}</div>
-  </div>
+      <li>
+        <div className="contentContainer">
+          <div className="title">{title}</div>
+          <div className="description">{content.description}</div>
+        </div>
+      </li>
     );
   }
 }
-
-// function ContentInfo(props){
-//     const contents = props.contents;
-//     const contentInfo = contents.map((content) =>
-//   <ContentInfo key={content.toString()}
-//   value={content} />
-//   )
-//   return(
-//     <div className ="contentContainer">
-//     <Content item={props.item} />
-//     <div className="title">{props.item.title}</div>
-//     </div>
-//   )
-//
-//
-// }
-
-
 
 class Timeline extends React.Component {
   render() {
     const items=[];
     this.props.contents.forEach((content) => {
-
-  items.push(
-    <ContentInfo
-      content={content}
-      key={content.title} />
-  );
-
-});
-
-
-
+      items.push(
+        <ContentInfo
+        content={content}
+        key={content.id} />
+      );
+    });
 
     return (
-      <div>
-
-          <ul>
-            <li><div className='contentContainer'>{items}</div></li>
-
-          </ul>
-        </div>
-      );
-    }
+      <ul>
+        {items}
+      </ul>
+    );
   }
+}
 
 class Pathway extends React.Component {
   render() {
@@ -75,8 +47,7 @@ class Pathway extends React.Component {
         </div>
       </div>
         <div className="timeline">
-          <Timeline contents={this.props.contents} />
-
+        <Timeline contents={this.props.contents} />
         </div>
       </div>
     );
@@ -91,7 +62,7 @@ const CONTENTS = [
   },
   {
     id: 1,
-    title:'Hiring & Onboarding the right people:</br> Coaching call',
+    title:'Hiring & Onboarding the right people: Coaching call',
     description:'A follow up conversation to the training session reviewing how the skills have been put into practise in reality, and how we can help support you in the future with your recruiter.'
   },
   {
@@ -101,12 +72,12 @@ const CONTENTS = [
   },
   {
     id: 3,
-    title:'Management Essentials:</br> Remote Bitesized learning sessions',
+    title:'Management Essentials: Remote Bitesized learning sessions',
     description:'A series of sessions bringing in new skills as well as updating and adapting existing ones to make sure you’re giving the best support to your recruiter as they grow into the role.'
   },
   {
     id: 4,
-    title:'Management Essentials:</br> Onsite Coaching',
+    title:'Management Essentials: Onsite Coaching',
     description:'Half a day with Professional Development supporting you in putting your Management Essentials skills into practice back in your office.'
   },
 
@@ -117,27 +88,27 @@ const CONTENTS = [
   },
   {
     id: 6,
-    title:'Building a team:</br> Remote Bitesized sized learning sessions',
+    title:'Building a team: Remote Bitesized sized learning sessions',
     description:'A series of sessions bringing in new skills as well as updating and adapting existing ones to make sure you’re giving the best support to the members of your team as it continues to grow and evolve.'
   },
   {
     id: 7,
-    title:'Building a Team:</br> Onsite Coaching',
+    title:'Building a Team: Onsite Coaching',
     description:'Half a day with Professional Development supporting you in putting your Building a Team skills effectively into practice back in your office.'
   },
   {
     id: 8,
-    title:'Leading a Team:',
+    title:'Leading a Team',
     description:''
   },
   {
     id: 9,
-    title:'Leading a Team:</br> Remote Bitesized Learning Sessions',
+    title:'Leading a Team: Remote Bitesized Learning Sessions',
     description:''
   },
   {
     id: 10,
-    title:'Leading a Team:</br> Partner Day',
+    title:'Leading a Team: Partner Day',
     description:''
   },
   {
@@ -147,11 +118,10 @@ const CONTENTS = [
   }
 ]
 
-
-// ========================================
-
 ReactDOM.render(
-  <Pathway contents={CONTENTS}/>,
+  <Pathway
+  contents={CONTENTS}
+  />,
 
   document.getElementById('root')
 );
