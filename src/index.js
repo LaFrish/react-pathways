@@ -16,7 +16,7 @@ class ContentInfo extends React.Component{
       isToggleOn: !prevState.isToggleOn
     }));
   }
-  
+
   render(){
     const content = this.props.content;
     const title = content.title;
